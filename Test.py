@@ -77,20 +77,21 @@ def to_24_hour_clock(hours):
 
 
 ### Write your get_hours function definition here:
-def get_hour(time):
+def get_hours (time):
     return (time) // 3600
 
 
 
 ### Write your get_minutes function definition here:
 def get_minutes (time):
-    return (time - (get_hour(time)) * 3600)//60
+    return (time - (get_hours(time)) * 3600)//60
 
 
 
 ### Write your get_seconds function definition here:
-def get_second(time):
-    return (time - (get_hour(time) * 3600) - get_minutes(time) * 60)
+def get_seconds (time):
+    return (time - (get_hours(time) * 3600) - get_minutes(time) * 60)
+
 
 
 
@@ -138,4 +139,4 @@ def time_from_utc(utc_offset, time):
     >>> time_from_utc(+1, 23.0)
     0.0
     """
-    return (time) + (utc_offset)
+    return (time) + (utc_offset) % 24
